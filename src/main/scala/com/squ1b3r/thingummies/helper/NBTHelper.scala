@@ -22,10 +22,9 @@ import net.minecraft.nbt.NBTTagCompound
 object NBTHelper {
 
   /**
-	 * Makes sure compaund tag exists
+	 * Returns compound tag for itemStack if exists. Creates an empty one otherwise
 	 *
-	 * @param stack
-   *              ItemStack to check tag existence for
+	 * @param stack ItemStack to check tag existence for
 	 */
   def getNBTTagCompound(stack: ItemStack): NBTTagCompound = {
     if (stack.stackTagCompound == null) {
@@ -35,54 +34,43 @@ object NBTHelper {
   }
 
   /**
-	 * Makes sure compaund tag is there
+	 * Checks existence of the compound tag
 	 *
-	 * @param stack
-   *              ItemStack to check key existence in
-   * @param key
-   *            Key to check existence for
+	 * @param stack ItemStack to check key existence in
+   * @param key Key to check existence for
 	 */
   def verifyNBTKey(stack: ItemStack, key: String): Boolean = getNBTTagCompound(stack).hasKey(key)
 
   /**
 	 * Reads Int value from NBT using given key
 	 *
-	 * @param stack
-   *              stack to read data from
-   * @param key
-   *            Key to read data for
+	 * @param stack stack to read data from
+   * @param key Key to read data for
 	 */
   def readIntegerFromNBT(stack: ItemStack, key: String): Int = getNBTTagCompound(stack).getInteger(key)
 
   /**
 	 * Reads String value from NBT using given key
 	 *
-	 *@param stack
-   *              stack to read data from
-   * @param key
-   *            Key to read data for
+	 *@param stack stack to read data from
+   * @param key Key to read data for
 	 */
   def readStringFromNBT(stack: ItemStack, key: String): String = getNBTTagCompound(stack).getString(key)
 
   /**
 	 * Reads Boolean value from NBT using given key
 	 *
-	 * @param stack
-   *              stack to read data from
-   * @param key
-   *            Key to read data for
+	 * @param stack stack to read data from
+   * @param key Key to read data for
 	 */
   def readBooleanFromNBT(stack: ItemStack, key: String): Boolean = getNBTTagCompound(stack).getBoolean(key)
 
   /**
 	 * Writes given data to given ItemStack with given key
 	 *
-	 * @param stack
-   *              stack to write data for
-   * @param key
-   *            Key to write data with
-   * @param value
-   *              Value to write
+	 * @param stack stack to write data for
+   * @param key Key to write data with
+   * @param value Value to write
 	 */
   def writeToNBT(stack: ItemStack, key: String, value: Any): ItemStack = {
     val compound = getNBTTagCompound(stack)
