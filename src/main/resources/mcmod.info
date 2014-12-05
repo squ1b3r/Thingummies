@@ -1,0 +1,17 @@
+[
+    {
+        "modid": "thingummies",
+        "name": "Thingummies",
+        "description": "Things... Thingies... Thingummies...",
+        "version": "${version}",
+        "credits": "squ1b3r",
+        "logoFile": "",
+        "mcversion": "${mcversion}",
+        "url": "",
+        "updateUrl": "",
+        "authorList": ["squ1b3r"],
+        "parent": "",
+        "screenshots": [],
+        "dependencies": ["Forge, RedstoneArsenal"]
+    }
+]

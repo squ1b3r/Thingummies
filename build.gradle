@@ -1,0 +1,81 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+    }
+}
+
+apply plugin: "scala"
+apply plugin: "forge"
+apply plugin: "idea"
+
+file "build.properties" withReader {
+    def prop = new Properties()
+    prop.load(it)
+    ext.config = new ConfigSlurper().parse prop
+}
+
+version = "mc${config.minecraft.version}-${config.mod.version}"
+group = "com.squ1b3r.thingummies"
+archivesBaseName = "Thingummies"
+
+repositories {
+    maven {
+        name = "chickenbones"
+        url = "http://chickenbones.net/maven/"
+    }
+}
+
+configurations {
+  provided
+    compile.extendsFrom provided
+}
+
+dependencies {
+    // http://chickenbones.net/maven
+    compile "codechicken:CodeChickenCore:1.7.10-1.0.3.23:dev"
+    compile "codechicken:NotEnoughItems:1.7.10-1.0.3.51:dev"
+
+    provided fileTree(dir: "run/mods", include: ["*.jar"])
+}
+
+idea.module.scopes.PROVIDED.plus += [configurations.provided]
+
+minecraft {
+    version = "${config.minecraft.version}-${config.forge.version}"
+
+    replaceIn "com/squ1b3r/thingummies/reference/Reference.scala"
+    replace "@VERSION@", version
+
+    runDir = "run"
+}
+
+processResources
+{
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
