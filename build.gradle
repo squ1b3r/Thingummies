@@ -42,9 +42,9 @@ configurations {
 }
 
 dependencies {
-    // http://chickenbones.net/maven
-    compile "codechicken:CodeChickenCore:1.7.10-1.0.3.23:dev"
-    compile "codechicken:NotEnoughItems:1.7.10-1.0.3.51:dev"
+    compile "codechicken:CodeChickenLib:1.7.10-1.1.1.106:dev"
+    compile "codechicken:CodeChickenCore:1.7.10-1.0.4.29:dev"
+    compile "codechicken:NotEnoughItems:1.7.10-1.0.3.72:dev"
 
     provided fileTree(dir: "run/mods", include: ["*.jar"])
 }
