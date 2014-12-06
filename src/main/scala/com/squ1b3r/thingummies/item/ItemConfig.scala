@@ -28,12 +28,12 @@ object ItemConfig {
   }
 
   final val ToolMaterial: Item.ToolMaterial = EnumHelper.addToolMaterial("RA_FLUX", 3, 100, 8.0F, 0.0F, 25)
-  final val ToolTexturePath: String = Reference.ModID + ":tool/Flux"
+  final val ToolTexturePath: String = Reference.ModID + ":tool/flux"
 
   // Flux-Infused Magnet
   var ItemMagnetEnable: Boolean = true
   final val ItemMagnetName: String = "Flux-Infused Magnet"
-  final val ItemMagnetUnlocalizedName = Reference.ModID + ".tool.FluxMagnet"
+  final val ItemMagnetUnlocalizedName = Reference.ModID + ".tool.fluxMagnet"
 
   def update(configuration: Configuration): Unit = {
     // Crafting Settings
