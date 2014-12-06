@@ -29,6 +29,8 @@ import net.minecraftforge.common.config.Configuration
 @Mod(name = Reference.Name, modid = Reference.ModID, version = Reference.Version, dependencies = Reference.Dependencies, modLanguage = "scala")
 object Thingummies {
 
+  val instance = this
+
   /**
    * FML preInit
    *

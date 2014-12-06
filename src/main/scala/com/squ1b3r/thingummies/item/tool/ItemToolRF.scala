@@ -36,16 +36,14 @@ trait ItemToolRF extends Item with IEnergyContainerItem {
   protected val maxEnergy: Int = 160000
   protected val maxTransfer: Int = 1600
   protected val energyPerUse: Int = 80
-  protected val allowedEnchantments: List[Int] = List()
-  var itemActiveIcon: IIcon = null
-  var itemDrainedIcon: IIcon = null
+  var itemIconOff: IIcon = null
 
   // Item
   @SideOnly(Side.CLIENT)
   override def addInformation(stack: ItemStack, player: EntityPlayer, list: java.util.List[_], advanced: Boolean): Unit = {
     val tooltip: util.List[String] = list.asInstanceOf[util.List[String]]
 
-    val storedEnergy = StringHelper.getFormattedNumber(NBTHelper.readIntegerFromNBT(stack, "Energy"))
+    val storedEnergy = StringHelper.getFormattedNumber(NBTHelper.readIntegerFromNBT(stack, "Energy", 0))
     tooltip.add(StringHelper.Orange + StringHelper.LightGray + storedEnergy + " / " + StringHelper.getFormattedNumber(maxEnergy) + " RF")
 
     if (!StringHelper.isShiftKeyDown)
@@ -67,16 +65,11 @@ trait ItemToolRF extends Item with IEnergyContainerItem {
 
   override def getIconIndex(stack: ItemStack): IIcon = getIcon(stack, 0)
 
-  override def getIcon(stack: ItemStack, pass: Int): IIcon = if (getEnergyStored(stack) <= 0) itemDrainedIcon else itemActiveIcon
-
   override def getEnergyStored(container: ItemStack): Int = {
-    if (!NBTHelper.verifyNBTKey(container, "Energy")) {
-      NBTHelper.writeToNBT(container, "Energy", 0)
-    }
-    NBTHelper.readIntegerFromNBT(container, "Energy")
+    NBTHelper.readIntegerFromNBT(container, "Energy", 0)
   }
 
-  override def getDisplayDamage(stack: ItemStack): Int = 1 + maxEnergy - NBTHelper.readIntegerFromNBT(stack, "Energy")
+  override def getDisplayDamage(stack: ItemStack): Int = 1 + maxEnergy - NBTHelper.readIntegerFromNBT(stack, "Energy", 0)
 
   override def getMaxDamage(stack: ItemStack): Int = maxEnergy + 1
 
@@ -84,10 +77,7 @@ trait ItemToolRF extends Item with IEnergyContainerItem {
 
   // IEnergyContainerItem
   override def receiveEnergy(container: ItemStack, maxReceive: Int, simulate: Boolean): Int = {
-    if (container.stackTagCompound == null) {
-      NBTHelper.writeToNBT(container, "Energy", 0)
-    }
-    var stored: Int = NBTHelper.readIntegerFromNBT(container, "Energy")
+    var stored: Int = NBTHelper.readIntegerFromNBT(container, "Energy", 0)
     var receive: Int = Math.min(maxReceive, Math.min(maxEnergy - stored, maxTransfer))
 
     if (!simulate) {
@@ -98,10 +88,7 @@ trait ItemToolRF extends Item with IEnergyContainerItem {
   }
 
   override def extractEnergy(container: ItemStack, maxExtract: Int, simulate: Boolean): Int = {
-    if (container.stackTagCompound == null) {
-      NBTHelper.writeToNBT(container, "Energy", 0)
-    }
-    var stored: Int = NBTHelper.readIntegerFromNBT(container, "Energy")
+    var stored: Int = NBTHelper.readIntegerFromNBT(container, "Energy", 0)
     var extract: Int = Math.min(maxExtract, stored)
 
     if (!simulate) {
@@ -112,6 +99,4 @@ trait ItemToolRF extends Item with IEnergyContainerItem {
   }
 
   override def getMaxEnergyStored(container: ItemStack): Int = maxEnergy
-
-  override def isBookEnchantable(stack: ItemStack, book: ItemStack): Boolean = false
 }

@@ -46,8 +46,10 @@ object NBTHelper {
    *
    * @param stack stack to read data from
    * @param key Key to read data for
+   * @param defaultExpected default value to return if key does not exist
    */
-  def readIntegerFromNBT(stack: ItemStack, key: String): Int = getNBTTagCompound(stack).getInteger(key)
+  def readIntegerFromNBT(stack: ItemStack, key: String, defaultExpected: Int): Int =
+    if (verifyNBTKey(stack, key)) getNBTTagCompound(stack).getInteger(key) else defaultExpected
 
   /**
    * Reads String value from NBT using given key
