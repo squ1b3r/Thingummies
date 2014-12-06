@@ -14,13 +14,13 @@
  * limitations under the License.
  * ========================================================================
  */
-package com.squ1b3r.thingummies.bridge.CoFH
+package com.squ1b3r.thingummies.integration.CoFH
 
 import cpw.mods.fml.common.registry.GameRegistry
 import net.minecraft.item.ItemStack
 
-class RedstoneArsenal {
+object RedstoneArsenalItems {
 
-  val ingotElectrumFlux: ItemStack = GameRegistry.findItemStack("RedstoneArsenal", "ingotElectrumFlux", 1)
-  val rodObsidianFlux: ItemStack = GameRegistry.findItemStack("RedstoneArsenal", "rodObsidianFlux", 1)
+  final val rodObsidianFlux: ItemStack = GameRegistry.findItemStack("RedstoneArsenal", "rodObsidianFlux", 1)
+
 }
