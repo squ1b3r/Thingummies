@@ -47,7 +47,7 @@ object StringHelper {
   final val Italic: String = 167.toChar + "o"
   final val End: String = 167.toChar + "r"
 
-  final val ShiftForInfo: String = "Hold " + Yellow +  "Shift" + LightGray + " for Details"
+  final val ShiftForInfo: String = "Hold " + Yellow + "Shift" + LightGray + " for Details"
 
   var formatter: DecimalFormat = new DecimalFormat("###,###")
 

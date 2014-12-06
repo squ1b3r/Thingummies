@@ -18,24 +18,19 @@ package com.squ1b3r.thingummies
 
 import java.io.File
 
-import cpw.mods.fml.common.Mod
-import cpw.mods.fml.common.event.{FMLPreInitializationEvent, FMLInitializationEvent}
-import cpw.mods.fml.common.Mod.EventHandler
-
-import net.minecraftforge.common.config.Configuration
-
-import com.squ1b3r.thingummies.handler.ConfigurationHandler
-import com.squ1b3r.thingummies.handler.RegistryHandler
+import com.squ1b3r.thingummies.handler.{ConfigurationHandler, RegistryHandler}
 import com.squ1b3r.thingummies.item.ItemRecipes
 import com.squ1b3r.thingummies.reference.{LoaderStatus, Reference}
+import cpw.mods.fml.common.Mod
+import cpw.mods.fml.common.Mod.EventHandler
+import cpw.mods.fml.common.event.{FMLInitializationEvent, FMLPreInitializationEvent}
+import net.minecraftforge.common.config.Configuration
 
 @Mod(name = Reference.Name, modid = Reference.ModID, version = Reference.Version, dependencies = Reference.Dependencies, modLanguage = "scala")
 object Thingummies {
 
-//  var instance = this
-
   /**
-   * FML Preinit
+   * FML preInit
    *
    * Loads configuration
    *

@@ -16,11 +16,9 @@
  */
 package com.squ1b3r.thingummies.helper
 
-import org.apache.logging.log4j.Level
-
-import cpw.mods.fml.common.FMLLog
-
 import com.squ1b3r.thingummies.reference.Reference
+import cpw.mods.fml.common.FMLLog
+import org.apache.logging.log4j.Level
 
 object LogHelper {
 

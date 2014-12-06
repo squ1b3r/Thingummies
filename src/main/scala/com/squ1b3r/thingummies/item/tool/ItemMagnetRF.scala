@@ -17,10 +17,11 @@
 package com.squ1b3r.thingummies.item.tool
 
 import java.util
-import scala.collection.convert.WrapAsScala._
 
+import com.squ1b3r.thingummies.helper.{NBTHelper, StringHelper}
+import com.squ1b3r.thingummies.item.ItemConfig
+import com.squ1b3r.thingummies.reference.Sounds
 import cpw.mods.fml.relauncher.{Side, SideOnly}
-
 import net.minecraft.client.renderer.texture.IIconRegister
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.entity.Entity
@@ -30,9 +31,7 @@ import net.minecraft.item.{EnumRarity, ItemStack}
 import net.minecraft.util.IIcon
 import net.minecraft.world.World
 
-import com.squ1b3r.thingummies.helper.{NBTHelper, StringHelper}
-import com.squ1b3r.thingummies.item.ItemConfig
-import com.squ1b3r.thingummies.reference.Sounds
+import scala.collection.convert.WrapAsScala._
 
 object ItemMagnetRF extends ItemToolRF {
 
@@ -78,8 +77,8 @@ object ItemMagnetRF extends ItemToolRF {
     if (!world.isRemote && getEnergyStored(stack) >= energyPerUse) {
       toggleToolMode(stack)
     }
-		super.onItemRightClick(stack, world, player)
-	}
+    super.onItemRightClick(stack, world, player)
+  }
 
   private def toggleToolMode(stack: ItemStack): Unit = NBTHelper.writeToNBT(stack, "Active", !isActive(stack))
 

@@ -16,10 +16,9 @@
  */
 package com.squ1b3r.thingummies.handler
 
-import cpw.mods.fml.common.registry.GameRegistry
-
 import com.squ1b3r.thingummies.item.tool.ItemMagnetRF
 import com.squ1b3r.thingummies.reference.Reference
+import cpw.mods.fml.common.registry.GameRegistry
 
 @GameRegistry.ObjectHolder(Reference.ModID)
 object RegistryHandler {

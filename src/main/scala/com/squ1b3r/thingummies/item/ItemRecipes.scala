@@ -16,13 +16,11 @@
  */
 package com.squ1b3r.thingummies.item
 
-import cpw.mods.fml.common.registry.GameRegistry
-
-import net.minecraft.item.ItemStack
-import net.minecraftforge.oredict.ShapedOreRecipe
-
 import com.squ1b3r.thingummies.bridge.CoFH.RedstoneArsenal
 import com.squ1b3r.thingummies.item.tool.ItemMagnetRF
+import cpw.mods.fml.common.registry.GameRegistry
+import net.minecraft.item.ItemStack
+import net.minecraftforge.oredict.ShapedOreRecipe
 
 object ItemRecipes extends RedstoneArsenal {
 
@@ -32,8 +30,8 @@ object ItemRecipes extends RedstoneArsenal {
       GameRegistry.addRecipe(new ShapedOreRecipe(
         new ItemStack(ItemMagnetRF),
         "RIR", "I I", "RIR",
-        'R':Character, rodObsidianFlux,
-        'I':Character, ingotElectrumFlux
+        'R': Character, rodObsidianFlux,
+        'I': Character, ingotElectrumFlux
       ))
     }
   }

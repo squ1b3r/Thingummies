@@ -32,7 +32,7 @@ object ConfigurationHandler {
 
     } catch {
       case exception: Exception =>
-        LogHelper.warning(Reference.Name +  " failed to load its configuration file.")
+        LogHelper.warning(Reference.Name + " failed to load its configuration file.")
     } finally {
       configuration.save()
     }

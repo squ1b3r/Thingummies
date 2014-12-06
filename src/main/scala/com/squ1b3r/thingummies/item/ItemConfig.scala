@@ -16,12 +16,10 @@
  */
 package com.squ1b3r.thingummies.item
 
+import com.squ1b3r.thingummies.reference.Reference
 import net.minecraft.item.Item
-
 import net.minecraftforge.common.config.Configuration
 import net.minecraftforge.common.util.EnumHelper
-
-import com.squ1b3r.thingummies.reference.Reference
 
 object ItemConfig {
 
