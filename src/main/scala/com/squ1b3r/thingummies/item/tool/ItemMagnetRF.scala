@@ -18,7 +18,7 @@ package com.squ1b3r.thingummies.item.tool
 
 import java.util
 
-import com.squ1b3r.thingummies.helper.{LogHelper, NBTHelper, StringHelper}
+import com.squ1b3r.thingummies.helper.{NBTHelper, StringHelper}
 import com.squ1b3r.thingummies.item.ItemConfig
 import com.squ1b3r.thingummies.reference.Sounds
 import cpw.mods.fml.common.eventhandler.SubscribeEvent
@@ -38,13 +38,17 @@ import scala.collection.convert.WrapAsScala._
 
 object ItemMagnetRF extends ItemToolRF {
 
+  protected val maxEnergy: Int = 160000
+  protected val maxTransfer: Int = 1600
+  protected val energyPerUse: Int = 8
+
   private final val radius: Int = 8
   private final val ON: Boolean = true
 
   setCreativeTab(CreativeTabs.tabTools)
   setUnlocalizedName(ItemConfig.ItemMagnetUnlocalizedName)
   setTextureName(ItemConfig.ToolTexturePath + "Magnet")
-  MinecraftForge.EVENT_BUS.register(this);
+  MinecraftForge.EVENT_BUS.register(this)
 
   @SideOnly(Side.CLIENT)
   override def getRarity(stack: ItemStack) = EnumRarity.uncommon
@@ -120,7 +124,7 @@ object ItemMagnetRF extends ItemToolRF {
                 if (success) {
                   world.playSoundAtEntity(entity, Sounds.RandomPop, 0.2F, world.rand.nextFloat * 0.4F + 0.8F)
 
-                  if (!player.capabilities.isCreativeMode) extractEnergy(stack, energyPerUse, simulate=false)
+                  if (!player.capabilities.isCreativeMode) extractEnergy(stack, energyPerUse, simulate = false)
                 }
               }
             }
@@ -134,7 +138,7 @@ object ItemMagnetRF extends ItemToolRF {
           for (orb <- expOrbs) {
             player.addExperience(orb.getXpValue)
             orb.setDead()
-            if (!player.capabilities.isCreativeMode) extractEnergy(stack, energyPerUse, simulate=false)
+            if (!player.capabilities.isCreativeMode) extractEnergy(stack, energyPerUse, simulate = false)
           }
           world.playSoundAtEntity(entity, Sounds.RandomOrb, 0.1F, 0.5F * ((world.rand.nextFloat - world.rand.nextFloat) * 0.7F + 1.8F))
         }

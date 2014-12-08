@@ -33,9 +33,10 @@ trait ItemToolRF extends Item with IEnergyContainerItem {
   setMaxStackSize(1)
   setNoRepair()
 
-  protected val maxEnergy: Int = 160000
-  protected val maxTransfer: Int = 1600
-  protected val energyPerUse: Int = 80
+  protected val maxEnergy: Int
+  protected val maxTransfer: Int
+  protected val energyPerUse: Int
+
   var itemIconOff: IIcon = null
 
   // Item
