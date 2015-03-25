@@ -26,7 +26,7 @@ file "build.properties" withReader {
 }
 
 version = "mc${config.minecraft.version}-${config.mod.version}"
-group = "com.squ1b3r.thingummies"
+group = "squ1b3r.thingummies"
 archivesBaseName = "Thingummies"
 
 repositories {
@@ -42,9 +42,10 @@ configurations {
 }
 
 dependencies {
-    compile "codechicken:CodeChickenLib:1.7.10-1.1.1.106:dev"
-    compile "codechicken:CodeChickenCore:1.7.10-1.0.4.29:dev"
-    compile "codechicken:NotEnoughItems:1.7.10-1.0.3.72:dev"
+    compile "codechicken:CodeChickenLib:${config.minecraft.version}-${config.ccl.version}:dev"
+    compile "codechicken:CodeChickenCore:${config.minecraft.version}-${config.ccc.version}:dev"
+    compile "codechicken:NotEnoughItems:${config.minecraft.version}-${config.nei.version}:dev"
+    compile "codechicken:ForgeMultipart:${config.minecraft.version}-${config.fmp.version}:dev"
 
     provided fileTree(dir: "run/mods", include: ["*.jar"])
 }
@@ -54,7 +55,7 @@ idea.module.scopes.PROVIDED.plus += [configurations.provided]
 minecraft {
     version = "${config.minecraft.version}-${config.forge.version}"
 
-    replaceIn "com/squ1b3r/thingummies/reference/Reference.scala"
+    replaceIn "squ1b3r/thingummies/reference/Reference.scala"
     replace "@VERSION@", version
 
     runDir = "run"
@@ -77,5 +78,11 @@ processResources
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+}
+
+sourceSets {
+    main {
+        output.resourcesDir = output.classesDir
     }
 }

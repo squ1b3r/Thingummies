@@ -1,1 +1,74 @@
+# Slick Block
+tile.thingummies.decorative.slick.block.white.name=White Slick Block
+tile.thingummies.decorative.slick.block.orange.name=Orange Slick Block
+tile.thingummies.decorative.slick.block.magenta.name=Magenta Slick Block
+tile.thingummies.decorative.slick.block.light_blue.name=Light Blue Slick Block
+tile.thingummies.decorative.slick.block.yellow.name=Yellow Slick Block
+tile.thingummies.decorative.slick.block.lime.name=Lime Slick Block
+tile.thingummies.decorative.slick.block.pink.name=Pink Slick Block
+tile.thingummies.decorative.slick.block.gray.name=Gray Slick Block
+tile.thingummies.decorative.slick.block.light_gray.name=Light Gray Slick Block
+tile.thingummies.decorative.slick.block.cyan.name=Cyan Slick Block
+tile.thingummies.decorative.slick.block.purple.name=Purple Slick Block
+tile.thingummies.decorative.slick.block.blue.name=Blue Slick Block
+tile.thingummies.decorative.slick.block.brown.name=Brown Slick Block
+tile.thingummies.decorative.slick.block.green.name=Green Slick Block
+tile.thingummies.decorative.slick.block.red.name=Red Slick Block
+tile.thingummies.decorative.slick.block.black.name=Black Slick Block
+
+# Shabby Block
+tile.thingummies.decorative.shabby.block.white.name=White Shabby Block
+tile.thingummies.decorative.shabby.block.orange.name=Orange Shabby Block
+tile.thingummies.decorative.shabby.block.magenta.name=Magenta Shabby Block
+tile.thingummies.decorative.shabby.block.light_blue.name=Light Blue Shabby Block
+tile.thingummies.decorative.shabby.block.yellow.name=Yellow Shabby Block
+tile.thingummies.decorative.shabby.block.lime.name=Lime Shabby Block
+tile.thingummies.decorative.shabby.block.pink.name=Pink Shabby Block
+tile.thingummies.decorative.shabby.block.gray.name=Gray Shabby Block
+tile.thingummies.decorative.shabby.block.light_gray.name=Light Gray Shabby Block
+tile.thingummies.decorative.shabby.block.cyan.name=Cyan Shabby Block
+tile.thingummies.decorative.shabby.block.purple.name=Purple Shabby Block
+tile.thingummies.decorative.shabby.block.blue.name=Blue Shabby Block
+tile.thingummies.decorative.shabby.block.brown.name=Brown Shabby Block
+tile.thingummies.decorative.shabby.block.green.name=Green Shabby Block
+tile.thingummies.decorative.shabby.block.red.name=Red Shabby Block
+tile.thingummies.decorative.shabby.block.black.name=Black Shabby Block
+
+# Stained Block
+tile.thingummies.decorative.stained.block.white.name=White Stained Block
+tile.thingummies.decorative.stained.block.orange.name=Orange Stained Block
+tile.thingummies.decorative.stained.block.magenta.name=Magenta Stained Block
+tile.thingummies.decorative.stained.block.light_blue.name=Light Blue Stained Block
+tile.thingummies.decorative.stained.block.yellow.name=Yellow Stained Block
+tile.thingummies.decorative.stained.block.lime.name=Lime Stained Block
+tile.thingummies.decorative.stained.block.pink.name=Pink Stained Block
+tile.thingummies.decorative.stained.block.gray.name=Gray Stained Block
+tile.thingummies.decorative.stained.block.light_gray.name=Light Gray Stained Block
+tile.thingummies.decorative.stained.block.cyan.name=Cyan Stained Block
+tile.thingummies.decorative.stained.block.purple.name=Purple Stained Block
+tile.thingummies.decorative.stained.block.blue.name=Blue Stained Block
+tile.thingummies.decorative.stained.block.brown.name=Brown Stained Block
+tile.thingummies.decorative.stained.block.green.name=Green Stained Block
+tile.thingummies.decorative.stained.block.red.name=Red Stained Block
+tile.thingummies.decorative.stained.block.black.name=Black Stained Block
+
+# Noisy Block
+tile.thingummies.decorative.noisy.block.white.name=White Noisy Block
+tile.thingummies.decorative.noisy.block.orange.name=Orange Noisy Block
+tile.thingummies.decorative.noisy.block.magenta.name=Magenta Noisy Block
+tile.thingummies.decorative.noisy.block.light_blue.name=Light Blue Noisy Block
+tile.thingummies.decorative.noisy.block.yellow.name=Yellow Noisy Block
+tile.thingummies.decorative.noisy.block.lime.name=Lime Noisy Block
+tile.thingummies.decorative.noisy.block.pink.name=Pink Noisy Block
+tile.thingummies.decorative.noisy.block.gray.name=Gray Noisy Block
+tile.thingummies.decorative.noisy.block.light_gray.name=Light Gray Noisy Block
+tile.thingummies.decorative.noisy.block.cyan.name=Cyan Noisy Block
+tile.thingummies.decorative.noisy.block.purple.name=Purple Noisy Block
+tile.thingummies.decorative.noisy.block.blue.name=Blue Noisy Block
+tile.thingummies.decorative.noisy.block.brown.name=Brown Noisy Block
+tile.thingummies.decorative.noisy.block.green.name=Green Noisy Block
+tile.thingummies.decorative.noisy.block.red.name=Red Noisy Block
+tile.thingummies.decorative.noisy.block.black.name=Black Noisy Block
+
+# Tools
 item.thingummies.tool.fluxMagnet.name=Flux-Infused Magnet
