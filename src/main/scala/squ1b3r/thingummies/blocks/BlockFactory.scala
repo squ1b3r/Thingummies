@@ -34,6 +34,8 @@ import squ1b3r.thingummies.reference.Reference
 class BlockFactory(name: String) extends Block(Material.rock) {
 
   setBlockName(Reference.ModID + "." + name)
+  setHardness(3.0F)
+  setResistance(4.0F)
 
   var blockIconWhite: IIcon = null
   var blockIconBlack: IIcon = null
@@ -46,11 +48,7 @@ class BlockFactory(name: String) extends Block(Material.rock) {
 
   @SideOnly(Side.CLIENT)
   override def colorMultiplier(world: IBlockAccess, x: Int, y: Int, z: Int): Int = {
-    val meta = world.getBlockMetadata(x, y, z)
-    meta match {
-      case 0 | 15 => 16777215
-      case _ => ColorHelper.getColor(meta)
-    }
+    getRenderColor(world.getBlockMetadata(x, y, z))
   }
 
   @SideOnly(Side.CLIENT)

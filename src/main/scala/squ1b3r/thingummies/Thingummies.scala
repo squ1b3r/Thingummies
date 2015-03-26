@@ -26,6 +26,7 @@ import net.minecraftforge.common.config.Configuration
 
 import squ1b3r.thingummies.blocks.ModBlocks
 import squ1b3r.thingummies.handler.ConfigurationHandler
+import squ1b3r.thingummies.integration.FMP.ThingummiesFMP
 import squ1b3r.thingummies.items.{ItemRecipes, ModItems}
 import squ1b3r.thingummies.reference.{LoaderStatus, Reference}
 
@@ -64,5 +65,8 @@ object Thingummies {
     // Recipes
     if (LoaderStatus.RedstoneArsenalLoaded)
       ItemRecipes.init()
+
+    if (LoaderStatus.ForgeMultipartLoaded)
+      ThingummiesFMP.registerBlocks()
   }
 }

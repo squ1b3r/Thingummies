@@ -14,13 +14,13 @@
  * limitations under the License.
  * ========================================================================
  */
-package squ1b3r.thingummies.reference
+package squ1b3r.thingummies.integration.FMP
 
-import cpw.mods.fml.common.Loader
+import codechicken.microblock.BlockMicroMaterial
 
-object LoaderStatus {
+import net.minecraft.block.Block
 
-  // Loaded Mods
-  val RedstoneArsenalLoaded = Loader.isModLoaded(Reference.dependentMods.RedstoneArsenalID)
-  val ForgeMultipartLoaded = Loader.isModLoaded(Reference.dependentMods.ForgeMultipartID)
+class ColoredMicroMaterial(block: Block, meta: Int) extends BlockMicroMaterial(block, meta) {
+
+  override def getColour(pass: Int): Int = block.getRenderColor(meta) << 8 | 0xFF
 }
