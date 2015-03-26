@@ -20,24 +20,24 @@ import scala.collection.immutable.SortedMap
 
 object ColorHelper {
 
-  case class Color(code: Int, name: String)
+  case class Color(code: Int, name: String, dyeName: String)
 
-  final val WHITE = Color(0xFFFFFF, "white")
-  final val ORANGE = Color(0xEB8844, "orange")
-  final val MAGENTA = Color(0xC354CD, "magenta")
-  final val LIGHT_BLUE = Color(0x6689D3, "light_blue")
-  final val YELLOW = Color(0xDECF2A, "yellow")
-  final val LIME = Color(0x41CD34, "lime")
-  final val PINK = Color(0xD88198, "pink")
-  final val GRAY = Color(0x434343, "gray")
-  final val LIGHT_GRAY = Color(0xABABAB, "light_gray")
-  final val CYAN = Color(0x287697, "cyan")
-  final val PURPLE = Color(0x7B2FBE, "purple")
-  final val BLUE = Color(0x253192, "blue")
-  final val BROWN = Color(0x51301A, "brown")
-  final val GREEN = Color(0x3B511A, "green")
-  final val RED = Color(0xB3312C, "red")
-  final val BLACK = Color(0x1E1B1B, "black")
+  final val WHITE = Color(0xFFFFFF, "white", "White")
+  final val ORANGE = Color(0xEB8844, "orange", "Orange")
+  final val MAGENTA = Color(0xC354CD, "magenta", "Magenta")
+  final val LIGHT_BLUE = Color(0x6689D3, "light_blue", "LightBlue")
+  final val YELLOW = Color(0xDECF2A, "yellow", "Yellow")
+  final val LIME = Color(0x41CD34, "lime", "Lime")
+  final val PINK = Color(0xD88198, "pink", "Pink")
+  final val GRAY = Color(0x434343, "gray", "Gray")
+  final val LIGHT_GRAY = Color(0xABABAB, "light_gray", "LightGray")
+  final val CYAN = Color(0x287697, "cyan", "Cyan")
+  final val PURPLE = Color(0x7B2FBE, "purple", "Purple")
+  final val BLUE = Color(0x253192, "blue", "Blue")
+  final val BROWN = Color(0x51301A, "brown", "Brown")
+  final val GREEN = Color(0x3B511A, "green", "Green")
+  final val RED = Color(0xB3312C, "red", "Red")
+  final val BLACK = Color(0x1E1B1B, "black", "Black")
 
   val COLORS = SortedMap(
 
@@ -64,4 +64,5 @@ object ColorHelper {
 
   def getColorName(meta: Int): String = COLORS(meta).name
 
+  def getDyeName(meta: Int): String = "dye" + COLORS(meta).dyeName
 }

@@ -16,6 +16,53 @@
  */
 package squ1b3r.thingummies.blocks
 
+import cpw.mods.fml.common.registry.GameRegistry
+
+import net.minecraft.init.{Blocks, Items}
+import net.minecraft.item.ItemStack
+import net.minecraftforge.oredict.ShapedOreRecipe
+
+import squ1b3r.thingummies.helper.ColorHelper
+
 object BlockRecipes {
 
+  def init(): Unit = {
+    for (meta <- ColorHelper.COLORS.keys) {
+      // Slick Block
+      GameRegistry.addRecipe(new ShapedOreRecipe(
+        new ItemStack(ModBlocks.slickBlock, 32, meta),
+        "SQS", "QDQ", "SQS",
+        'S': Character, Blocks.stone,
+        'Q': Character, Items.quartz,
+        'D': Character, ColorHelper.getDyeName(meta)
+      ))
+
+      // Shabby Block
+      GameRegistry.addRecipe(new ShapedOreRecipe(
+        new ItemStack(ModBlocks.shabbyBlock, 32, meta),
+        "CQC", "QDQ", "CQC",
+        'C': Character, Blocks.cobblestone,
+        'Q': Character, Items.quartz,
+        'D': Character, ColorHelper.getDyeName(meta)
+      ))
+
+      // Stained Block
+      GameRegistry.addRecipe(new ShapedOreRecipe(
+        new ItemStack(ModBlocks.stainedBlock, 32, meta),
+        "SQS", "QDQ", "SQS",
+        'S': Character, Blocks.sand,
+        'Q': Character, Items.quartz,
+        'D': Character, ColorHelper.getDyeName(meta)
+      ))
+
+      // Noisy Block
+      GameRegistry.addRecipe(new ShapedOreRecipe(
+        new ItemStack(ModBlocks.noisyBlock, 32, meta),
+        "SQS", "QDQ", "SQS",
+        'S': Character, Blocks.sand,
+        'Q': Character, Blocks.stone,
+        'D': Character, ColorHelper.getDyeName(meta)
+      ))
+    }
+  }
 }

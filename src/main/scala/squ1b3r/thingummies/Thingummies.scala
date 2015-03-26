@@ -24,7 +24,7 @@ import cpw.mods.fml.common.event.{FMLInitializationEvent, FMLPreInitializationEv
 
 import net.minecraftforge.common.config.Configuration
 
-import squ1b3r.thingummies.blocks.ModBlocks
+import squ1b3r.thingummies.blocks.{BlockRecipes, ModBlocks}
 import squ1b3r.thingummies.handler.ConfigurationHandler
 import squ1b3r.thingummies.integration.FMP.ThingummiesFMP
 import squ1b3r.thingummies.items.{ItemRecipes, ModItems}
@@ -63,6 +63,8 @@ object Thingummies {
   @EventHandler
   def init(event: FMLInitializationEvent): Unit = {
     // Recipes
+    BlockRecipes.init()
+
     if (LoaderStatus.RedstoneArsenalLoaded)
       ItemRecipes.init()
 
