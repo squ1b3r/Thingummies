@@ -63,6 +63,24 @@ object BlockRecipes {
         'Q': Character, Blocks.stone,
         'D': Character, ColorHelper.getDyeName(meta)
       ))
+
+      // Convenience Recipes
+      GameRegistry.addShapelessRecipe(
+        new ItemStack(ModBlocks.shabbyBlock, 1, meta),
+        new ItemStack(ModBlocks.slickBlock, 1, meta)
+      )
+      GameRegistry.addShapelessRecipe(
+        new ItemStack(ModBlocks.stainedBlock, 1, meta),
+        new ItemStack(ModBlocks.shabbyBlock, 1, meta)
+      )
+      GameRegistry.addShapelessRecipe(
+        new ItemStack(ModBlocks.noisyBlock, 1, meta),
+        new ItemStack(ModBlocks.stainedBlock, 1, meta)
+      )
+      GameRegistry.addShapelessRecipe(
+        new ItemStack(ModBlocks.slickBlock, 1, meta),
+        new ItemStack(ModBlocks.noisyBlock, 1, meta)
+      )
     }
   }
 }
