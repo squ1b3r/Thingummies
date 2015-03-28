@@ -28,9 +28,7 @@ object ModBlocks {
   var slickBlock = new DecorativeBlockFactory(BlockConfig.SlickBlockName)
   var stainedBlock = new DecorativeBlockFactory(BlockConfig.StainedBlockName)
   var shabbyBlock = new DecorativeBlockFactory(BlockConfig.ShabbyBlockName)
-
   var noisyBlock = new DecorativeBlockFactory(BlockConfig.NoisyBlockName)
-
 
   def preInit(): Unit = {
 

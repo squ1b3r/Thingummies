@@ -21,10 +21,11 @@ object Reference {
   object dependentMods {
     final val RedstoneArsenalID = "RedstoneArsenal"
     final val ForgeMultipartID = "ForgeMultipart"
+    final val ChiselID = "chisel"
   }
 
   final val Name = "Thingummies"
   final val ModID = "thingummies"
-  final val Dependencies = "required-after:" + dependentMods.RedstoneArsenalID + ";after:" + dependentMods.ForgeMultipartID
+  final val Dependencies = "required-after:" + dependentMods.RedstoneArsenalID + ";after:" + dependentMods.ForgeMultipartID + ";after:" + dependentMods.ChiselID
   final val Version = "@VERSION@"
 }

@@ -18,7 +18,7 @@ package squ1b3r.thingummies
 
 import java.io.File
 
-import cpw.mods.fml.common.Mod
+import cpw.mods.fml.common.{Loader, Mod}
 import cpw.mods.fml.common.Mod.EventHandler
 import cpw.mods.fml.common.event.{FMLInitializationEvent, FMLPreInitializationEvent}
 
@@ -26,9 +26,10 @@ import net.minecraftforge.common.config.Configuration
 
 import squ1b3r.thingummies.blocks.{BlockRecipes, ModBlocks}
 import squ1b3r.thingummies.handler.ConfigurationHandler
+import squ1b3r.thingummies.integration.Chisel.ThingummiesChisel
 import squ1b3r.thingummies.integration.FMP.ThingummiesFMP
 import squ1b3r.thingummies.items.{ItemRecipes, ModItems}
-import squ1b3r.thingummies.reference.{LoaderStatus, Reference}
+import squ1b3r.thingummies.reference.Reference
 
 @Mod(name = Reference.Name, modid = Reference.ModID, version = Reference.Version, dependencies = Reference.Dependencies, modLanguage = "scala")
 object Thingummies {
@@ -65,10 +66,13 @@ object Thingummies {
     // Recipes
     BlockRecipes.init()
 
-    if (LoaderStatus.RedstoneArsenalLoaded)
+    if (Loader.isModLoaded(Reference.dependentMods.RedstoneArsenalID))
       ItemRecipes.init()
 
-    if (LoaderStatus.ForgeMultipartLoaded)
+    if (Loader.isModLoaded(Reference.dependentMods.ForgeMultipartID))
       ThingummiesFMP.registerBlocks()
+
+    if (Loader.isModLoaded(Reference.dependentMods.ChiselID))
+      ThingummiesChisel.registerBlocks()
   }
 }

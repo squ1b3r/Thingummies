@@ -74,7 +74,9 @@ class BlockFactory(name: String) extends Block(Material.rock) {
 
   override def damageDropped(meta: Int) = meta
 
-  def getBlockIconName(postfix: String): String = Reference.ModID + ":" + name + "." + postfix
+  def getName: String = Reference.ModID + ":" + name
+
+  def getBlockIconName(postfix: String): String = getName + postfix
 }
 
 
