@@ -19,13 +19,7 @@ apply plugin: "scala"
 apply plugin: "forge"
 apply plugin: "idea"
 
-file "build.properties" withReader {
-    def prop = new Properties()
-    prop.load(it)
-    ext.config = new ConfigSlurper().parse prop
-}
-
-version = "mc${config.minecraft.version}-${config.mod.version}"
+version = "mc${mc_version}-${mod_version}"
 group = "squ1b3r.thingummies"
 archivesBaseName = "Thingummies"
 
@@ -42,10 +36,10 @@ configurations {
 }
 
 dependencies {
-    compile "codechicken:CodeChickenLib:${config.minecraft.version}-${config.ccl.version}:dev"
-    compile "codechicken:CodeChickenCore:${config.minecraft.version}-${config.ccc.version}:dev"
-    compile "codechicken:NotEnoughItems:${config.minecraft.version}-${config.nei.version}:dev"
-    compile "codechicken:ForgeMultipart:${config.minecraft.version}-${config.fmp.version}:dev"
+    compile "codechicken:CodeChickenLib:${mc_version}-${ccl_version}:dev"
+    compile "codechicken:CodeChickenCore:${mc_version}-${ccc_version}:dev"
+    compile "codechicken:NotEnoughItems:${mc_version}-${nei_version}:dev"
+    compile "codechicken:ForgeMultipart:${mc_version}-${fmp_version}:dev"
 
     provided fileTree(dir: "run/mods", include: ["*.jar"])
 }
@@ -53,7 +47,7 @@ dependencies {
 idea.module.scopes.PROVIDED.plus += [configurations.provided]
 
 minecraft {
-    version = "${config.minecraft.version}-${config.forge.version}"
+    version = "${mc_version}-${forge_version}"
 
     replaceIn "squ1b3r/thingummies/reference/Reference.scala"
     replace "@VERSION@", version
@@ -61,8 +55,7 @@ minecraft {
     runDir = "run"
 }
 
-processResources
-{
+processResources {
     // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
@@ -70,11 +63,11 @@ processResources
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'version': project.version, 'mcversion': project.minecraft.version
     }
-        
+
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
