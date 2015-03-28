@@ -16,19 +16,11 @@
  */
 package squ1b3r.thingummies
 
-import java.io.File
-
-import cpw.mods.fml.common.{Loader, Mod}
+import cpw.mods.fml.common.{SidedProxy, Mod}
 import cpw.mods.fml.common.Mod.EventHandler
-import cpw.mods.fml.common.event.{FMLInitializationEvent, FMLPreInitializationEvent}
+import cpw.mods.fml.common.event.{FMLPostInitializationEvent, FMLInitializationEvent, FMLPreInitializationEvent}
 
-import net.minecraftforge.common.config.Configuration
-
-import squ1b3r.thingummies.blocks.{BlockRecipes, ModBlocks}
-import squ1b3r.thingummies.handler.ConfigurationHandler
-import squ1b3r.thingummies.integration.Chisel.ThingummiesChisel
-import squ1b3r.thingummies.integration.FMP.ThingummiesFMP
-import squ1b3r.thingummies.items.{ItemRecipes, ModItems}
+import squ1b3r.thingummies.proxy.CommonProxy
 import squ1b3r.thingummies.reference.Reference
 
 @Mod(name = Reference.Name, modid = Reference.ModID, version = Reference.Version, dependencies = Reference.Dependencies, modLanguage = "scala")
@@ -36,43 +28,31 @@ object Thingummies {
 
   val instance = this
 
+  @SidedProxy(clientSide = "squ1b3r.thingummies.proxy.ClientProxy", serverSide = "squ1b3r.thingummies.proxy.ServerProxy")
+  var proxy: CommonProxy = _
+
   /**
    * FML preInit
-   *
-   * Loads configuration
    *
    * @param event FML event
    */
   @EventHandler
-  def preInit(event: FMLPreInitializationEvent): Unit = {
-    ConfigurationHandler.loadConfiguration(
-      new Configuration(new File(event.getModConfigurationDirectory, Reference.ModID + "/main.cfg"))
-    )
-
-    ModBlocks.preInit()
-
-    ModItems.preInit()
-  }
+  def preInit(event: FMLPreInitializationEvent): Unit = proxy.preInit(event)
 
   /**
    * FML Init
    *
-   * Registers blocks/items
+   * @param event FML event
+   */
+  @EventHandler
+  def init(event: FMLInitializationEvent): Unit = proxy.init(event)
+
+  /**
+   * FML postInit
    *
    * @param event FML event
    */
   @EventHandler
-  def init(event: FMLInitializationEvent): Unit = {
-    // Recipes
-    BlockRecipes.init()
+  def postInit(event: FMLPostInitializationEvent): Unit = proxy.postInit(event)
 
-    if (Loader.isModLoaded(Reference.dependentMods.RedstoneArsenalID))
-      ItemRecipes.init()
-
-    if (Loader.isModLoaded(Reference.dependentMods.ForgeMultipartID))
-      ThingummiesFMP.registerBlocks()
-
-    if (Loader.isModLoaded(Reference.dependentMods.ChiselID))
-      ThingummiesChisel.registerBlocks()
-  }
 }
