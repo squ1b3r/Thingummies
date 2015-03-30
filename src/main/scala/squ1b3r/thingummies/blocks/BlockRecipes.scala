@@ -30,7 +30,7 @@ object BlockRecipes {
     for (meta <- ColorHelper.COLORS.keys) {
       // Slick Block
       GameRegistry.addRecipe(new ShapedOreRecipe(
-        new ItemStack(ModBlocks.slickBlock, 32, meta),
+        new ItemStack(ModBlocks.slickBlock, 8, meta),
         "SQS", "QDQ", "SQS",
         'S': Character, Blocks.stone,
         'Q': Character, Items.quartz,
@@ -39,7 +39,7 @@ object BlockRecipes {
 
       // Shabby Block
       GameRegistry.addRecipe(new ShapedOreRecipe(
-        new ItemStack(ModBlocks.shabbyBlock, 32, meta),
+        new ItemStack(ModBlocks.shabbyBlock, 8, meta),
         "CQC", "QDQ", "CQC",
         'C': Character, Blocks.cobblestone,
         'Q': Character, Items.quartz,
@@ -48,7 +48,7 @@ object BlockRecipes {
 
       // Stained Block
       GameRegistry.addRecipe(new ShapedOreRecipe(
-        new ItemStack(ModBlocks.stainedBlock, 32, meta),
+        new ItemStack(ModBlocks.stainedBlock, 8, meta),
         "SQS", "QDQ", "SQS",
         'S': Character, Blocks.sand,
         'Q': Character, Items.quartz,
@@ -57,7 +57,7 @@ object BlockRecipes {
 
       // Noisy Block
       GameRegistry.addRecipe(new ShapedOreRecipe(
-        new ItemStack(ModBlocks.noisyBlock, 32, meta),
+        new ItemStack(ModBlocks.noisyBlock, 8, meta),
         "SQS", "QDQ", "SQS",
         'S': Character, Blocks.sand,
         'Q': Character, Blocks.stone,
