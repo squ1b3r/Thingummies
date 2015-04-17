@@ -47,7 +47,7 @@ dependencies {
 idea.module.scopes.PROVIDED.plus += [configurations.provided]
 
 minecraft {
-    version = "${mc_version}-${forge_version}"
+    version = "${mc_version}-${forge_version}-${mc_version}"
 
     replaceIn "squ1b3r/thingummies/reference/Reference.scala"
     replace "@VERSION@", version
