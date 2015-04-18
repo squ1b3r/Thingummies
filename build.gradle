@@ -30,24 +30,15 @@ repositories {
     }
 }
 
-configurations {
-  provided
-    compile.extendsFrom provided
-}
-
 dependencies {
     compile "codechicken:CodeChickenLib:${mc_version}-${ccl_version}:dev"
     compile "codechicken:CodeChickenCore:${mc_version}-${ccc_version}:dev"
     compile "codechicken:NotEnoughItems:${mc_version}-${nei_version}:dev"
     compile "codechicken:ForgeMultipart:${mc_version}-${fmp_version}:dev"
-
-    provided fileTree(dir: "run/mods", include: ["*.jar"])
 }
 
-idea.module.scopes.PROVIDED.plus += [configurations.provided]
-
 minecraft {
-    version = "${mc_version}-${forge_version}-${mc_version}"
+    version = "${mc_version}-${forge_version}"
 
     replaceIn "squ1b3r/thingummies/reference/Reference.scala"
     replace "@VERSION@", version
@@ -74,8 +65,8 @@ processResources {
     }
 }
 
-sourceSets {
-    main {
-        output.resourcesDir = output.classesDir
+idea {
+    module {
+        inheritOutputDirs = true
     }
 }

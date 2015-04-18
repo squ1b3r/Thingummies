@@ -1,6 +1,9 @@
 *.iml
 *.ipr
 *.iws
+
+libs/
 run/
 out/
+
 .gradle/
