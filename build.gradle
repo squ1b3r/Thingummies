@@ -38,7 +38,7 @@ dependencies {
 }
 
 minecraft {
-    version = "${mc_version}-${forge_version}"
+    version = "${forge_version}"
 
     replaceIn "squ1b3r/thingummies/reference/Reference.scala"
     replace "@VERSION@", version
